@@ -62,7 +62,7 @@ const services: Service[] = [
 ];
 
 export default function Services() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number>(-1);
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: '-15% 0px' });
 
@@ -78,12 +78,12 @@ export default function Services() {
             <FadeIn>
               <div className="label-eyebrow mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-ochre" />
-                02 · Ydelser
+                01 · Ydelser
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="display-lg text-balance">
-                Tre måder at <span className="italic text-ochre">engagere</span>.
+                Tre måder at <span className="text-ochre">engagere</span>.
               </h2>
             </FadeIn>
           </div>
@@ -104,6 +104,16 @@ export default function Services() {
             <motion.article
               key={service.num}
               onMouseEnter={() => setActive(i)}
+              onClick={() => setActive(active === i ? -1 : i)}
+              role="button"
+              tabIndex={0}
+              aria-expanded={active === i}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActive(active === i ? -1 : i);
+                }
+              }}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{
@@ -111,7 +121,7 @@ export default function Services() {
                 duration: 0.9,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              className="group border-b border-slate-200 py-10 md:py-14 relative cursor-pointer"
+              className="group border-b border-slate-200 py-10 md:py-14 px-4 md:px-8 lg:px-10 relative cursor-pointer"
               data-cursor="hover"
             >
               {/* Hover background */}

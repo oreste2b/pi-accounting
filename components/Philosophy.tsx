@@ -23,7 +23,7 @@ export default function Philosophy() {
         <motion.div style={{ opacity }} className="max-w-[1100px]">
           <div className="label-eyebrow mb-10 text-ochre flex items-center gap-3">
             <span className="inline-block w-8 h-px bg-ochre" />
-            03 · Filosofi
+            02 · Filosofi
           </div>
 
           <RevealText splitWords text="Financial clarity er ikke et regneark." as="h2" className="display-lg text-parchment" delay={0.1} />

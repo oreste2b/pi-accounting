@@ -27,7 +27,7 @@ export default function Contact() {
           <FadeIn>
             <div className="label-eyebrow text-ochre mb-8 flex items-center gap-3">
               <span className="inline-block w-8 h-px bg-ochre" />
-              07 · Kontakt
+              06 · Kontakt
             </div>
           </FadeIn>
 

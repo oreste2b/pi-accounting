@@ -49,7 +49,7 @@ export default function Hero() {
             delay={0.5}
           >
             <span className="inline-block w-8 h-px bg-ochre" />
-            01 · Fractional CFO
+            København · Fractional CFO praksis
           </RevealText>
 
           <h1 className="display-xl text-balance">

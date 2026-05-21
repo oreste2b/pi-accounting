@@ -36,12 +36,12 @@ export default function Process() {
             <FadeIn>
               <div className="label-eyebrow mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-ochre" />
-                06 · Sådan arbejder vi
+                05 · Sådan arbejder vi
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="display-lg text-balance">
-                Tre skridt. <span className="italic text-ochre">Ingen overraskelser.</span>
+                Tre skridt. <span className="text-ochre">Ingen overraskelser.</span>
               </h2>
             </FadeIn>
           </div>

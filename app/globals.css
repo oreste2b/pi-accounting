@@ -26,10 +26,25 @@
     color: #F7F4ED;
   }
 
-  /* Custom cursor for desktop */
-  @media (hover: hover) and (pointer: fine) {
-    body.has-cursor * {
-      cursor: none !important;
+  /* Focus-visible system — accesible para teclado */
+  *:focus {
+    outline: none;
+  }
+  *:focus-visible {
+    outline: 2px solid #B7892F;
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  /* Respeta preferencia de reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 

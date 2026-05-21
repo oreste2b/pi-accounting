@@ -49,13 +49,13 @@ export default function Authority() {
             <FadeIn>
               <div className="label-eyebrow mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-ochre" />
-                05 · Autoritet
+                04 · Autoritet
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="display-lg text-balance">
                 Bygget på 15 år hos dem, der{' '}
-                <span className="italic text-ochre">sætter standarden</span>.
+                <span className="text-ochre">sætter standarden</span>.
               </h2>
             </FadeIn>
           </div>
