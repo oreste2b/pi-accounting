@@ -11,16 +11,20 @@ export default function Contact() {
       id="kontakt"
       className="py-32 md:py-48 bg-midnight text-parchment relative overflow-hidden"
     >
-      {/* Decorative serif glyph */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 0.06, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="absolute -right-20 md:-right-40 top-1/2 -translate-y-1/2 font-display text-[40rem] md:text-[55rem] leading-none text-parchment select-none pointer-events-none"
+      {/* Editorial corner mark — replaces the oversized ✦ */}
+      <div
+        aria-hidden
+        className="absolute top-10 right-10 md:top-16 md:right-16 flex items-center gap-3 text-[11px] uppercase tracking-editorial font-mono text-parchment/50"
       >
-        ✦
-      </motion.div>
+        <span>PI · KONTAKT</span>
+        <span className="inline-block w-8 h-px bg-ochre" />
+      </div>
+
+      {/* Subtle hairline composition */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-[8%] hidden md:block w-px bg-parchment/8"
+      />
 
       <div className="container-pi relative">
         <div className="max-w-4xl">
@@ -33,16 +37,16 @@ export default function Contact() {
 
           <h2 className="display-xl text-balance mb-12 md:mb-16">
             <RevealText>En halv times</RevealText>
-            <RevealText delay={0.15}>
+            <RevealText delay={0.12}>
               <span>samtale.</span>
             </RevealText>
-            <RevealText delay={0.3}>
+            <RevealText delay={0.24}>
               <span className="italic text-ochre">Ingen forpligtelser.</span>
             </RevealText>
           </h2>
 
-          <FadeIn delay={0.4}>
-            <p className="lede text-parchment/80 max-w-2xl mb-14 md:mb-20 text-pretty">
+          <FadeIn delay={0.3}>
+            <p className="lede text-parchment/85 max-w-2xl mb-14 md:mb-20 text-pretty">
               De fleste samarbejder begynder med et fortroligt opklaringsmøde.
               Vi taler om, hvor din virksomhed står, hvad der presser, og om
               en Fractional CFO er det rigtige svar. Hvis det ikke er det,
@@ -51,19 +55,19 @@ export default function Contact() {
           </FadeIn>
 
           <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
-            <FadeIn delay={0.5}>
-              <MagneticButton href="https://cal.com/piaccounting" strength={0.3}>
+            <FadeIn delay={0.4}>
+              <MagneticButton href="https://cal.com/piaccounting" strength={0.25}>
                 <span className="inline-flex items-center gap-4 bg-ochre text-midnight px-9 py-5 text-sm font-medium tracking-wide group transition-colors duration-500 hover:bg-parchment">
                   Book 30 minutter
-                  <span className="inline-block transition-transform duration-500 group-hover:translate-x-1.5">
+                  <span aria-hidden className="inline-block transition-transform duration-500 group-hover:translate-x-1.5">
                     →
                   </span>
                 </span>
               </MagneticButton>
             </FadeIn>
 
-            <FadeIn delay={0.6}>
-              <div className="text-sm text-parchment/70">
+            <FadeIn delay={0.5}>
+              <div className="text-sm text-parchment/75">
                 Foretrækker du e-mail?
                 <a
                   href="mailto:pernilla@piaccounting.dk"
@@ -76,25 +80,25 @@ export default function Contact() {
           </div>
 
           {/* Meta info */}
-          <FadeIn delay={0.8}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 md:mt-32 pt-10 border-t border-parchment/15">
+          <FadeIn delay={0.6}>
+            <dl className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 md:mt-32 pt-10 border-t border-parchment/15">
               <div>
-                <p className="label-eyebrow text-parchment/50">Lokation</p>
-                <p className="mt-2 text-parchment">København, DK</p>
+                <dt className="label-eyebrow text-parchment/50">Lokation</dt>
+                <dd className="mt-2 text-parchment">København, DK</dd>
               </div>
               <div>
-                <p className="label-eyebrow text-parchment/50">Sprog</p>
-                <p className="mt-2 text-parchment">Dansk · Engelsk</p>
+                <dt className="label-eyebrow text-parchment/50">Sprog</dt>
+                <dd className="mt-2 text-parchment">Dansk · Engelsk</dd>
               </div>
               <div>
-                <p className="label-eyebrow text-parchment/50">Tilgængelighed</p>
-                <p className="mt-2 text-parchment">3, 6 eller 12 mdr.</p>
+                <dt className="label-eyebrow text-parchment/50">Engagement</dt>
+                <dd className="mt-2 text-parchment tabular">3 · 6 · 12 mdr.</dd>
               </div>
               <div>
-                <p className="label-eyebrow text-parchment/50">Svartid</p>
-                <p className="mt-2 text-parchment">Inden for 24 t.</p>
+                <dt className="label-eyebrow text-parchment/50">Svartid</dt>
+                <dd className="mt-2 text-parchment tabular">{'<'} 24 t.</dd>
               </div>
-            </div>
+            </dl>
           </FadeIn>
         </div>
       </div>

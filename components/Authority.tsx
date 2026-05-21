@@ -28,7 +28,7 @@ const metrics = [
   { value: 15, suffix: '+', label: 'Års erfaring i økonomi og revision' },
   { value: 4, suffix: '', label: 'Industrier dækket' },
   { value: 3, suffix: '', label: 'Markeder: DK · Norden · EU' },
-  { value: 100, suffix: '%', label: 'Uafhængig praksis' }
+  { value: 12, suffix: ' mdr.', label: 'Maks. engagement-længde — herefter overdragelse' }
 ];
 
 const credentials = [
@@ -49,7 +49,7 @@ export default function Authority() {
             <FadeIn>
               <div className="label-eyebrow mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-ochre" />
-                04 · Autoritet
+                01 · Autoritet
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -88,7 +88,7 @@ export default function Authority() {
               <div className="font-display text-5xl md:text-7xl font-medium leading-none mb-3 tabular">
                 <Counter value={m.value} suffix={m.suffix} />
               </div>
-              <p className="text-xs md:text-sm text-slate-500 group-hover:text-parchment/70 transition-colors duration-500 leading-snug">
+              <p className="text-xs md:text-sm text-slate-600 group-hover:text-parchment/75 transition-colors duration-500 leading-snug text-pretty">
                 {m.label}
               </p>
             </motion.div>

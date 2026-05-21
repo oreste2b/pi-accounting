@@ -14,7 +14,9 @@ const config: Config = {
         'ochre-soft': '#D4A24A',
         slate: {
           700: '#3A4456',
+          600: '#4B5563',
           500: '#6B7280',
+          300: '#9CA3AF',
           200: '#D6D3CC',
           100: '#ECE9E2'
         }

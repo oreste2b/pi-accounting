@@ -1,8 +1,11 @@
-import { Cormorant_Garamond, Inter, JetBrains_Mono } from 'next/font/google';
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
 
-export const fontDisplay = Cormorant_Garamond({
+// Fraunces — contemporary editorial serif, closer in spirit to GT Sectra
+// (rational, low-contrast, modern) than Cormorant Garamond.
+export const fontDisplay = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap'
 });

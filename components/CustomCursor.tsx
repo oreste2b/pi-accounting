@@ -55,11 +55,11 @@ export default function CustomCursor() {
         translateY: '-50%'
       }}
       animate={{
-        width: visible ? 56 : 0,
-        height: visible ? 56 : 0,
-        opacity: visible ? 0.95 : 0
+        width: visible ? 28 : 0,
+        height: visible ? 28 : 0,
+        opacity: visible ? 0.9 : 0
       }}
-      transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+      transition={{ type: 'spring', stiffness: 320, damping: 24 }}
     />
   );
 }

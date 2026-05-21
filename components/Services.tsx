@@ -78,7 +78,7 @@ export default function Services() {
             <FadeIn>
               <div className="label-eyebrow mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-ochre" />
-                01 · Ydelser
+                02 · Ydelser
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -103,25 +103,27 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.article
               key={service.num}
-              onMouseEnter={() => setActive(i)}
               onClick={() => setActive(active === i ? -1 : i)}
               role="button"
               tabIndex={0}
               aria-expanded={active === i}
+              aria-controls={`service-${service.num}-detail`}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
                   setActive(active === i ? -1 : i);
+                } else if (e.key === 'Escape' && active === i) {
+                  setActive(-1);
                 }
               }}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{
-                delay: 0.3 + i * 0.12,
-                duration: 0.9,
+                delay: 0.2 + i * 0.1,
+                duration: 0.7,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              className="group border-b border-slate-200 py-10 md:py-14 relative cursor-pointer"
+              className="group border-b border-slate-200 py-10 md:py-14 relative cursor-pointer focus:outline-none"
               data-cursor="hover"
             >
               {/* Hover background — full-bleed edge-to-edge */}
@@ -167,6 +169,7 @@ export default function Services() {
                     {service.description}
                   </p>
                   <motion.div
+                    id={`service-${service.num}-detail`}
                     initial={false}
                     animate={
                       active === i
@@ -189,13 +192,24 @@ export default function Services() {
                     </div>
                   </motion.div>
                 </div>
-                <div className="md:col-span-2 flex md:justify-end items-start">
+                <div className="md:col-span-2 flex md:justify-end items-start gap-3">
+                  <span
+                    className={`hidden md:inline text-[11px] uppercase tracking-editorial font-mono transition-colors duration-500 ${
+                      active === i
+                        ? 'text-parchment/60'
+                        : 'text-slate-600 group-hover:text-midnight'
+                    }`}
+                    aria-hidden
+                  >
+                    {active === i ? 'Luk' : 'Læs mere'}
+                  </span>
                   <motion.span
                     animate={active === i ? { rotate: 45 } : { rotate: 0 }}
                     transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-                    className={`text-3xl font-light transition-colors duration-500 ${
+                    className={`text-3xl font-light transition-colors duration-500 leading-none ${
                       active === i ? 'text-ochre' : 'text-midnight'
                     }`}
+                    aria-hidden
                   >
                     +
                   </motion.span>

@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
@@ -75,7 +75,7 @@
   }
 
   .label-eyebrow {
-    @apply text-[11px] uppercase tracking-editorial text-slate-500 font-medium font-mono;
+    @apply text-[11px] uppercase tracking-editorial text-slate-600 font-medium font-mono;
   }
 
   .display-xl {

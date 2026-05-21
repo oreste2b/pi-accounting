@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     'PI Accounting'
   ],
   authors: [{ name: 'Pernilla Isa Hansen' }],
+  alternates: {
+    canonical: 'https://piaccounting.dk'
+  },
   openGraph: {
     type: 'website',
     locale: 'da_DK',
