@@ -121,12 +121,12 @@ export default function Services() {
                 duration: 0.9,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              className="group border-b border-slate-200 py-10 md:py-14 px-4 md:px-8 lg:px-10 relative cursor-pointer"
+              className="group border-b border-slate-200 py-10 md:py-14 relative cursor-pointer"
               data-cursor="hover"
             >
-              {/* Hover background */}
+              {/* Hover background — full-bleed edge-to-edge */}
               <motion.div
-                className="absolute inset-x-0 inset-y-0 bg-midnight origin-bottom z-0"
+                className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen bg-midnight origin-bottom z-0"
                 initial={{ scaleY: 0 }}
                 animate={active === i ? { scaleY: 1 } : { scaleY: 0 }}
                 transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
