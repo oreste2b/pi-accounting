@@ -4,7 +4,7 @@ import { ReactNode, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
   as?: 'h1' | 'h2' | 'h3' | 'p' | 'div';
   className?: string;
   delay?: number;
