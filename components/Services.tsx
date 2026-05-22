@@ -62,7 +62,7 @@ const services: Service[] = [
 ];
 
 export default function Services() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number>(-1);
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: '-15% 0px' });
 
@@ -83,7 +83,7 @@ export default function Services() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="display-lg text-balance">
-                Tre måder at <span className="italic text-ochre">engagere</span>.
+                Tre måder at <span className="text-ochre">engagere</span>.
               </h2>
             </FadeIn>
           </div>
@@ -103,20 +103,32 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.article
               key={service.num}
-              onMouseEnter={() => setActive(i)}
+              onClick={() => setActive(active === i ? -1 : i)}
+              role="button"
+              tabIndex={0}
+              aria-expanded={active === i}
+              aria-controls={`service-${service.num}-detail`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActive(active === i ? -1 : i);
+                } else if (e.key === 'Escape' && active === i) {
+                  setActive(-1);
+                }
+              }}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{
-                delay: 0.3 + i * 0.12,
-                duration: 0.9,
+                delay: 0.2 + i * 0.1,
+                duration: 0.7,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              className="group border-b border-slate-200 py-10 md:py-14 relative cursor-pointer"
+              className="group border-b border-slate-200 py-10 md:py-14 relative cursor-pointer focus:outline-none"
               data-cursor="hover"
             >
-              {/* Hover background */}
+              {/* Hover background — full-bleed edge-to-edge */}
               <motion.div
-                className="absolute inset-x-0 inset-y-0 bg-midnight origin-bottom z-0"
+                className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen bg-midnight origin-bottom z-0"
                 initial={{ scaleY: 0 }}
                 animate={active === i ? { scaleY: 1 } : { scaleY: 0 }}
                 transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
@@ -157,6 +169,7 @@ export default function Services() {
                     {service.description}
                   </p>
                   <motion.div
+                    id={`service-${service.num}-detail`}
                     initial={false}
                     animate={
                       active === i
@@ -179,13 +192,24 @@ export default function Services() {
                     </div>
                   </motion.div>
                 </div>
-                <div className="md:col-span-2 flex md:justify-end items-start">
+                <div className="md:col-span-2 flex md:justify-end items-start gap-3">
+                  <span
+                    className={`hidden md:inline text-[11px] uppercase tracking-editorial font-mono transition-colors duration-500 ${
+                      active === i
+                        ? 'text-parchment/60'
+                        : 'text-slate-600 group-hover:text-midnight'
+                    }`}
+                    aria-hidden
+                  >
+                    {active === i ? 'Luk' : 'Læs mere'}
+                  </span>
                   <motion.span
                     animate={active === i ? { rotate: 45 } : { rotate: 0 }}
                     transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-                    className={`text-3xl font-light transition-colors duration-500 ${
+                    className={`text-3xl font-light transition-colors duration-500 leading-none ${
                       active === i ? 'text-ochre' : 'text-midnight'
                     }`}
+                    aria-hidden
                   >
                     +
                   </motion.span>

@@ -29,19 +29,19 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-28 md:py-40 bg-slate-100 relative">
+    <section id="proces" className="py-28 md:py-40 bg-slate-100 relative">
       <div className="container-pi">
         <div className="grid md:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-24">
           <div className="md:col-span-5">
             <FadeIn>
               <div className="label-eyebrow mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-ochre" />
-                06 · Sådan arbejder vi
+                03 · Sådan arbejder vi
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="display-lg text-balance">
-                Tre skridt. <span className="italic text-ochre">Ingen overraskelser.</span>
+                Tre skridt. <span className="text-ochre">Ingen overraskelser.</span>
               </h2>
             </FadeIn>
           </div>
@@ -71,8 +71,8 @@ export default function Process() {
               className="bg-parchment p-10 md:p-12 min-h-[320px] flex flex-col"
             >
               <div className="flex items-baseline justify-between mb-10">
-                <span className="font-mono text-sm text-ochre">{step.num}</span>
-                <span className="font-mono text-[11px] uppercase tracking-editorial text-slate-500">
+                <span className="font-mono text-sm text-ochre tabular">{step.num}</span>
+                <span className="font-mono text-[11px] uppercase tracking-editorial text-slate-600 tabular">
                   {step.duration}
                 </span>
               </div>
