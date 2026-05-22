@@ -61,13 +61,13 @@ export default function About() {
                 className="absolute inset-0 w-full h-[108%]"
               >
                 <Image
-                  src="/pernilla-placeholder.svg"
+                  src="/pernilla.jpg"
                   alt="Portræt af Pernilla Isa Hansen, grundlægger af PI Accounting"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover"
-                  unoptimized
+                  className="object-cover object-top"
+                  quality={90}
                 />
               </motion.div>
             </div>
